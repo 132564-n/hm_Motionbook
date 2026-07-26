@@ -1,7 +1,6 @@
-import { router } from '@kit.ArkUI';
+import { router, promptAction } from '@kit.ArkUI';
 import { ProjectRepository } from '../repositories/ProjectRepository';
 import { Project, ProjectType, ProjectStatus } from '../models/Models';
-import { promptAction } from '@kit.ArkUI';
 
 /**
  * 作品详情页面

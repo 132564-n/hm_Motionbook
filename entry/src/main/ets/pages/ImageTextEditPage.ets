@@ -1,5 +1,4 @@
 import { router } from '@kit.ArkUI';
-import { image } from '@kit.ImageKit';
 import { photoAccessHelper } from '@kit.PhotoAccessHelper';
 import { ProjectRepository } from '../repositories/ProjectRepository';
 import { Project, ProjectType, ProjectStatus, ImageTextPage, TextStyle } from '../models/Models';
@@ -23,9 +22,30 @@ struct ImageTextEditPage {
   private repo: ProjectRepository = new ProjectRepository();
 
   aboutToAppear(): void {
-    const params = router.getParams() as Record<string, Object>;
+    const params = router.getParams() as Record<string, string | number>;
     if (params && params.type === ProjectType.IMAGE_TEXT) {
       this.createNewProject();
+    }
+    if (params && params.id) {
+      this.projectId = params.id as number;
+      this.loadProject();
+    }
+  }
+
+  private async loadProject(): Promise<void> {
+    try {
+      const project = await this.repo.getById(this.projectId);
+      if (project) {
+        this.title = project.title;
+        if (project.content) {
+          this.pages = JSON.parse(project.content);
+          if (this.pages.length > 0) {
+            this.currentPageIndex = 0;
+          }
+        }
+      }
+    } catch (err) {
+      console.error('加载项目失败: ' + JSON.stringify(err));
     }
   }
 

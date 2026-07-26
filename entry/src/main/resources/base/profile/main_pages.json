@@ -1,9 +1,6 @@
 {
   "src": [
     "pages/Index",
-    "pages/HomePage",
-    "pages/CreatePage",
-    "pages/MinePage",
     "pages/ImageTextEditPage",
     "pages/AudioCreatePage",
     "pages/WorkDetailPage"

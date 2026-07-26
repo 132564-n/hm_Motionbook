@@ -1,6 +1,5 @@
 import { router } from '@kit.ArkUI';
 import { audio } from '@kit.AudioKit';
-import { fileIo } from '@kit.CoreFileKit';
 import { common } from '@kit.AbilityKit';
 import { ProjectRepository } from '../repositories/ProjectRepository';
 import { Project, ProjectType, ProjectStatus, AudioClip } from '../models/Models';
@@ -29,15 +28,36 @@ struct AudioCreatePage {
   private currentFilePath: string = '';
 
   aboutToAppear(): void {
-    const params = router.getParams() as Record<string, Object>;
+    const params = router.getParams() as Record<string, string | number>;
     if (params && params.type === ProjectType.AUDIO) {
       this.createNewProject();
     }
+    if (params && params.id) {
+      this.projectId = params.id as number;
+      this.loadProject();
+    }
   }
 
-  aboutToDisappear(): void {
+  onPageHide(): void {
     this.stopRecording();
     this.stopPlaying();
+  }
+
+  private async loadProject(): Promise<void> {
+    try {
+      const project = await this.repo.getById(this.projectId);
+      if (project) {
+        this.title = project.title;
+        if (project.content) {
+          this.audioClips = JSON.parse(project.content);
+          if (this.audioClips.length > 0) {
+            this.currentClipIndex = 0;
+          }
+        }
+      }
+    } catch (err) {
+      console.error('加载项目失败: ' + JSON.stringify(err));
+    }
   }
 
   private async createNewProject(): Promise<void> {
