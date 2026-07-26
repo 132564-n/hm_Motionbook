@@ -1,0 +1,32 @@
+# HarmonyOS DevEco Studio
+.idea/
+build/
+generated/
+oh_modules/
+entry/build/
+entry/generated/
+entry/oh_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node.js
+node_modules/
+package-lock.json
+yarn.lock
+
+# Logs
+*.log
+
+# Scratch directory (local issue tracker)
+.scratch/
+
+# Build artifacts
+*.hap
+*.har
+*.ohos
+
+# Environment variables
+.env
+.env.local
