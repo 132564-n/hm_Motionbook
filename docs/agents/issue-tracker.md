@@ -1,26 +1,34 @@
 # Issue tracker
 
-This repo uses **local markdown** for issue tracking.
+This repo uses **GitHub Issues** for issue tracking.
 
 ## Where issues live
 
-Issues are markdown files under `.scratch/<feature>/`:
-
-```
-.scratch/
-  <feature-slug>/
-    001-short-issue-title.md
-    002-another-issue.md
-```
-
-Each feature or workstream gets its own folder. Each issue is one `.md` file, prefixed with a zero-padded number for sort order.
+Issues live in the GitHub repository: [132564-n/hm_Motionbook](https://github.com/132564-n/hm_Motionbook/issues)
 
 ## Workflow
 
-- **Create an issue:** write a new `.md` file under the relevant `.scratch/<feature>/` folder.
-- **Update an issue:** edit the file in place.
-- **Close an issue:** move the file out of `.scratch/` (e.g. to `.scratch/<feature>/done/`) or delete it.
+- **Create an issue:** use `gh issue create` or the GitHub web UI.
+- **Update an issue:** use `gh issue edit` or the GitHub web UI.
+- **Close an issue:** use `gh issue close` or the GitHub web UI, or reference the issue number in a commit message with `closes #N`.
 
-## Why local markdown
+## Labels
 
-No git remote is configured for this repo, and the project is small enough that a separate issue tracker would be overhead. Local markdown keeps issues co-located with the code and version-controlled alongside it once the repo is initialised.
+Standard triage labels:
+- `needs-triage` — new issues waiting for triage
+- `needs-info` — issue needs more information to proceed
+- `ready-for-agent` — ready for an agent to work on
+- `ready-for-human` — needs human review or decision
+- `wontfix` — will not be addressed
+
+## PRs as a request surface
+
+External pull requests are NOT automatically included in the triage queue. This is a solo project with no expectation of external contributions. To change this, set `prs_as_request_surface: true` below.
+
+### Configuration
+
+```yaml
+provider: github
+repo: 132564-n/hm_Motionbook
+prs_as_request_surface: false
+```

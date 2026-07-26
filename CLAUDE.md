@@ -2,7 +2,7 @@
 
 ### Issue tracker
 
-Issues live as markdown files under `.scratch/<feature>/`. See `docs/agents/issue-tracker.md`.
+Issues live in GitHub Issues at [132564-n/hm_Motionbook](https://github.com/132564-n/hm_Motionbook/issues). See `docs/agents/issue-tracker.md`.
 
 ### Domain docs
 
