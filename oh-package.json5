@@ -1,0 +1,10 @@
+{
+  "modelVersion": "5.0.0",
+  "description": "鸿蒙图文音频创作工具 - HarmonyOS native app for content creation",
+  "dependencies": {
+  },
+  "metadata": {
+    "useTemplateKit": true,
+    "templateKitVersion": "5.0.0"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "图文音频创作工具主模块"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "图文音频创作"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "图文音频创作"
+    },
+    {
+      "name": "reason_microphone",
+      "value": "用于录制音频内容"
+    },
+    {
+      "name": "reason_write_media",
+      "value": "用于保存创作的作品到媒体库"
+    },
+    {
+      "name": "reason_read_media",
+      "value": "用于读取媒体库中的图片和音频素材"
+    },
+    {
+      "name": "tab_home",
+      "value": "首页"
+    },
+    {
+      "name": "tab_create",
+      "value": "创作"
+    },
+    {
+      "name": "tab_mine",
+      "value": "我的"
+    },
+    {
+      "name": "create_image_text",
+      "value": "图文创作"
+    },
+    {
+      "name": "create_audio",
+      "value": "音频创作"
+    },
+    {
+      "name": "create_from_template",
+      "value": "模板创作"
+    }
+  ]
+}
